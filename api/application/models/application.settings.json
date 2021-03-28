@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "name": "application",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "app_icon": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "screenshots": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "app_category": {
+      "model": "app-category",
+      "via": "applications"
+    },
+    "apk_file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "app_code": {
+      "type": "uid",
+      "required": true
+    },
+    "download_url": {
+      "type": "string"
+    },
+    "icon_url": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    }
+  }
+}
